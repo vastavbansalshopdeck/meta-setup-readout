@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meta Setup Live-Connect — Detailed Appendix</title>
+<style>
+  :root{--ink:#1a1a1a;--muted:#6b6b6b;--line:#e5e2dc;--bg:#faf8f4;--accent:#2f5d50;--accent2:#c25a3a;--good:#2f7d5b;--warn:#c25a3a;--chip:#efe9df;}
+  *{box-sizing:border-box}
+  body{font-family:'Georgia',serif;color:var(--ink);background:var(--bg);margin:0;line-height:1.6;}
+  .wrap{max-width:920px;margin:0 auto;padding:52px 40px 90px;}
+  h1{font-size:30px;margin:0 0 4px;letter-spacing:-.4px;}
+  .sub{font-family:'Helvetica Neue',Arial,sans-serif;color:var(--muted);font-size:13px;margin-bottom:8px;}
+  .back{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;margin-bottom:28px;}
+  .back a{color:var(--accent);text-decoration:none;} .back a:hover{text-decoration:underline;}
+  h2{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin:42px 0 12px;padding-bottom:7px;border-bottom:2px solid var(--accent);}
+  h3{font-family:'Helvetica Neue',Arial,sans-serif;font-size:15px;margin:22px 0 6px;}
+  p{margin:0 0 12px;}
+  table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12.5px;}
+  th{text-align:left;background:var(--accent);color:#fff;padding:8px 9px;font-weight:600;font-size:11px;letter-spacing:.4px;text-transform:uppercase;}
+  td{padding:7px 9px;border-bottom:1px solid var(--line);}
+  tr:nth-child(even) td{background:#fff;}
+  .num{text-align:right;font-variant-numeric:tabular-nums;}
+  .good{color:var(--good);font-weight:600;} .warn{color:var(--warn);font-weight:600;}
+  .mono{font-family:'SF Mono',Menlo,Consolas,monospace;font-size:12px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px;white-space:pre-wrap;line-height:1.5;}
+  ul{margin:6px 0 14px;padding-left:22px;} li{margin-bottom:6px;}
+  .caveat{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12.5px;color:var(--muted);font-style:italic;}
+  .box{background:#fff;border-left:4px solid var(--accent2);padding:14px 18px;margin:16px 0;border-radius:0 8px 8px 0;}
+  .box .t{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);margin-bottom:5px;}
+  .foot{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);font-family:'Helvetica Neue',Arial,sans-serif;font-size:11.5px;color:var(--muted);}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Detailed Appendix</h1>
+<div class="sub">Meta Setup Live-Connect Pilot · methodology, per-POC tables, distributions, model assumptions</div>
+<div class="back"><a href="index.html">← Back to index</a> · <a href="meta_exec_summary.html">Executive summary</a> · <a href="meta_live_connect_report.html">Full readout</a></div>
+
+<h2>A · Methodology &amp; data cleaning</h2>
+<p><strong>Source:</strong> the live-pilot scheduling sheet, filtered to 7 &amp; 8 July 2026. 9 July was excluded as an in-progress day with sparse logging.</p>
+<h3>Definitions</h3>
+<ul>
+<li><strong>Served</strong> = seller entered a POC breakout room (has a breakout-join time and a named breakout POC).</li>
+<li><strong>Completed</strong> = the sheet's "Was meta setup completed" flag = Yes.</li>
+<li><strong>Call duration</strong> = breakout exit − breakout join.</li>
+<li><strong>Wait time</strong> = breakout join − waiting-room join.</li>
+<li><strong>Breakout POC</strong> is the agent who ran the call — distinct from the "OB POC" (the seller's onboarding owner). All per-agent stats use the breakout POC.</li>
+<li><strong>Occupancy</strong> = total on-call minutes ÷ online span (first join → last exit).</li>
+<li><strong>Effective POCs</strong> = time-weighted headcount = POC-hours available ÷ day length, to correct for staggered staffing.</li>
+</ul>
+<h3>Time parsing</h3>
+<p>Timestamps were entered inconsistently (mixed 12/24-hour, dot notation like <span class="mono" style="padding:1px 5px">4.45</span>, semicolons, missing AM/PM). A parser normalised these using a business-hours window (10 AM–10 PM): bare numbers 1–9 read as PM. Estimated accuracy ±10 min per the logging caveat.</p>
+<div class="box">
+<div class="t">Known data-quality issues</div>
+<ul style="margin-bottom:0">
+<li><strong>Stray AM timestamps:</strong> Shrusti (06:15) and Imteyaz (05:00) on 8 July inflate their online spans — real spans ~7h; their occupancy figures are unreliable.</li>
+<li><strong>Overlapping intervals:</strong> Darius on 8 July shows 109% occupancy (two calls logged to one POC simultaneously) — a logging error.</li>
+<li><strong>Undercounted afternoon arrivals (8 July):</strong> many afternoon completed calls have blank waiting-room-join times, so that day's demand curve looks more front-loaded than reality.</li>
+<li><strong>Non-completions under-logged:</strong> short-stay lobby exits at peak may be missing → true completion rate likely slightly below 74%, true abandonment above the ~9 clean cases observed.</li>
+</ul>
+</div>
+
+<h2>B · Per-POC detail — 7 July</h2>
+<table>
+<tr><th>POC (breakout)</th><th class="num">Calls</th><th class="num">Done</th><th class="num">Rate</th><th class="num">First</th><th class="num">Last</th><th class="num">Span</th><th class="num">On-call</th><th class="num">Occ.</th></tr>
+<tr><td>Dishari</td><td class="num">9</td><td class="num">7</td><td class="num">78%</td><td class="num">11:15</td><td class="num">19:20</td><td class="num">8.1h</td><td class="num">4.8h</td><td class="num">60%</td></tr>
+<tr><td>Saleem</td><td class="num">6</td><td class="num">5</td><td class="num">83%</td><td class="num">11:30</td><td class="num">20:20</td><td class="num">8.8h</td><td class="num">6.0h</td><td class="num">68%</td></tr>
+<tr><td>Pratik</td><td class="num">6</td><td class="num">5</td><td class="num">83%</td><td class="num">11:26</td><td class="num">19:28</td><td class="num">8.0h</td><td class="num">4.4h</td><td class="num">55%</td></tr>
+<tr><td>Sunil</td><td class="num">6</td><td class="num">4</td><td class="num">67%</td><td class="num">12:50</td><td class="num">19:04</td><td class="num">6.2h</td><td class="num">4.6h</td><td class="num">74%</td></tr>
+<tr><td>Rachita</td><td class="num">5</td><td class="num good">5</td><td class="num good">100%</td><td class="num">11:05</td><td class="num">18:01</td><td class="num">6.9h</td><td class="num">4.7h</td><td class="num">68%</td></tr>
+<tr><td>Darius</td><td class="num">5</td><td class="num">4</td><td class="num">80%</td><td class="num">11:57</td><td class="num">18:43</td><td class="num">6.8h</td><td class="num">5.1h</td><td class="num">75%</td></tr>
+<tr><td>Saquib</td><td class="num">5</td><td class="num">4</td><td class="num">80%</td><td class="num">11:05</td><td class="num">19:52</td><td class="num">8.8h</td><td class="num">5.2h</td><td class="num">59%</td></tr>
+<tr><td>Shrusti</td><td class="num">4</td><td class="num">3</td><td class="num">75%</td><td class="num">11:40</td><td class="num">18:09</td><td class="num">6.5h</td><td class="num">4.9h</td><td class="num">76%</td></tr>
+<tr><td>Vaishnavi</td><td class="num">4</td><td class="num">3</td><td class="num">75%</td><td class="num">13:15</td><td class="num">19:20</td><td class="num">6.1h</td><td class="num">4.3h</td><td class="num">71%</td></tr>
+<tr><td>Jayshree</td><td class="num">5</td><td class="num warn">0</td><td class="num warn">0%</td><td class="num">13:54</td><td class="num">18:30</td><td class="num">4.6h</td><td class="num">2.9h</td><td class="num">62%</td></tr>
+<tr style="font-weight:700"><td>Total / avg</td><td class="num">55</td><td class="num">40</td><td class="num">73%</td><td class="num">—</td><td class="num">—</td><td class="num">7.1h</td><td class="num">4.7h</td><td class="num">66%</td></tr>
+</table>
+
+<h2>C · Per-POC detail — 8 July</h2>
+<table>
+<tr><th>POC (breakout)</th><th class="num">Calls</th><th class="num">Done</th><th class="num">Rate</th><th class="num">First</th><th class="num">Last</th><th class="num">Span</th><th class="num">On-call</th><th class="num">Occ.</th></tr>
+<tr><td>Sunil</td><td class="num">10</td><td class="num good">8</td><td class="num">80%</td><td class="num">11:15</td><td class="num">18:54</td><td class="num">7.7h</td><td class="num">6.0h</td><td class="num">79%</td></tr>
+<tr><td>Saquib</td><td class="num">7</td><td class="num">6</td><td class="num">86%</td><td class="num">11:35</td><td class="num">19:27</td><td class="num">7.9h</td><td class="num">5.7h</td><td class="num">73%</td></tr>
+<tr><td>Tausif</td><td class="num">7</td><td class="num good">7</td><td class="num good">100%</td><td class="num">13:00</td><td class="num">19:30</td><td class="num">6.5h</td><td class="num">5.1h</td><td class="num">78%</td></tr>
+<tr><td>Shrusti *</td><td class="num">7</td><td class="num">5</td><td class="num">71%</td><td class="num">(06:15)</td><td class="num">17:33</td><td class="num">~7h</td><td class="num">5.6h</td><td class="num warn">n/r</td></tr>
+<tr><td>Darius *</td><td class="num">6</td><td class="num">4</td><td class="num">67%</td><td class="num">11:10</td><td class="num">18:42</td><td class="num">7.5h</td><td class="num">—</td><td class="num warn">109%</td></tr>
+<tr><td>Sreelekha</td><td class="num">5</td><td class="num good">5</td><td class="num good">100%</td><td class="num">12:39</td><td class="num">19:23</td><td class="num">6.7h</td><td class="num">5.5h</td><td class="num">82%</td></tr>
+<tr><td>Saleem</td><td class="num">5</td><td class="num">4</td><td class="num">80%</td><td class="num">12:40</td><td class="num">20:00</td><td class="num">7.3h</td><td class="num">6.0h</td><td class="num">82%</td></tr>
+<tr><td>Vaishnavi</td><td class="num">5</td><td class="num">3</td><td class="num">60%</td><td class="num">12:25</td><td class="num">19:10</td><td class="num">6.8h</td><td class="num">4.9h</td><td class="num">73%</td></tr>
+<tr><td>Imteyaz *</td><td class="num">5</td><td class="num">3</td><td class="num">60%</td><td class="num">(05:00)</td><td class="num">18:48</td><td class="num">~7h</td><td class="num">4.5h</td><td class="num warn">n/r</td></tr>
+<tr><td>Dishari</td><td class="num">4</td><td class="num good">4</td><td class="num good">100%</td><td class="num">10:58</td><td class="num">17:37</td><td class="num">6.7h</td><td class="num">4.0h</td><td class="num">60%</td></tr>
+<tr><td>Jayshree</td><td class="num">4</td><td class="num">3</td><td class="num">75%</td><td class="num">13:25</td><td class="num">19:38</td><td class="num">6.2h</td><td class="num">5.7h</td><td class="num">92%</td></tr>
+<tr><td>Rachita</td><td class="num">5</td><td class="num warn">2</td><td class="num warn">40%</td><td class="num">11:25</td><td class="num">18:40</td><td class="num">7.2h</td><td class="num">2.6h</td><td class="num">36%</td></tr>
+<tr><td>Pratik</td><td class="num">4</td><td class="num warn">1</td><td class="num warn">25%</td><td class="num">11:10</td><td class="num">18:55</td><td class="num">7.8h</td><td class="num">4.9h</td><td class="num">63%</td></tr>
+<tr style="font-weight:700"><td>Total / avg</td><td class="num">74</td><td class="num">55</td><td class="num">74%</td><td class="num">—</td><td class="num">—</td><td class="num">7.9h</td><td class="num">5.3h</td><td class="num">66%</td></tr>
+</table>
+<p class="caveat">* Occupancy not reliable (n/r) — stray AM timestamps or overlapping logged intervals. Call counts and completion still valid. Two-day combined leaders by completion: Sunil (12), Saquib (10), Tausif (7), Sreelekha, Dishari.</p>
+
+<h2>D · Duration distributions</h2>
+<h3>Completed vs. not-completed (both days)</h3>
+<table>
+<tr><th>Segment</th><th class="num">n</th><th class="num">Median</th><th class="num">Mean</th><th class="num">p90</th><th class="num">Max</th></tr>
+<tr><td>Completed</td><td class="num">95</td><td class="num">54 m</td><td class="num">60 m</td><td class="num">82 m</td><td class="num">195 m</td></tr>
+<tr><td>Not completed</td><td class="num">33</td><td class="num">36 m</td><td class="num">38 m</td><td class="num">63 m</td><td class="num">130 m</td></tr>
+</table>
+<h3>Completed-call duration buckets (n=95)</h3>
+<table>
+<tr><th>Bucket</th><th class="num">Count</th><th class="num">Share</th></tr>
+<tr><td>&lt;30 min</td><td class="num">4</td><td class="num">4%</td></tr>
+<tr><td>30–45 min</td><td class="num">25</td><td class="num">26%</td></tr>
+<tr><td>45–60 min</td><td class="num">23</td><td class="num">24%</td></tr>
+<tr><td>60–75 min</td><td class="num">21</td><td class="num">22%</td></tr>
+<tr><td>75–90 min</td><td class="num">13</td><td class="num">14%</td></tr>
+<tr><td>90–120 min</td><td class="num">6</td><td class="num">6%</td></tr>
+<tr><td>&gt;120 min</td><td class="num">3</td><td class="num">3%</td></tr>
+</table>
+<h3>Not-completed duration buckets (n=33)</h3>
+<table>
+<tr><th>Bucket</th><th class="num">Count</th><th class="num">Share</th></tr>
+<tr><td>&lt;15 min</td><td class="num">5</td><td class="num">15%</td></tr>
+<tr><td>15–30 min</td><td class="num">7</td><td class="num">21%</td></tr>
+<tr><td>30–45 min</td><td class="num">9</td><td class="num">27%</td></tr>
+<tr><td>45–60 min</td><td class="num">7</td><td class="num">21%</td></tr>
+<tr><td>60–90 min</td><td class="num">4</td><td class="num">12%</td></tr>
+<tr><td>&gt;90 min</td><td class="num">1</td><td class="num">3%</td></tr>
+</table>
+<p class="caveat">36% of failed calls end within 30 min — the POC hits a hard seller-side blocker fast and reschedules.</p>
+
+<h2>E · Wait time &amp; abandonment</h2>
+<table>
+<tr><th>Wait (lobby → breakout)</th><th class="num">7 July</th><th class="num">8 July</th><th class="num">Both</th></tr>
+<tr><td>n (measurable)</td><td class="num">53</td><td class="num">42</td><td class="num">95</td></tr>
+<tr><td>Average</td><td class="num">9.0 m</td><td class="num">13.0 m</td><td class="num">10.8 m</td></tr>
+<tr><td>Median</td><td class="num">5 m</td><td class="num">7 m</td><td class="num">6 m</td></tr>
+<tr><td>p75</td><td class="num">10 m</td><td class="num">13 m</td><td class="num">11 m</td></tr>
+<tr><td>p90</td><td class="num">17 m</td><td class="num">17 m</td><td class="num">20 m</td></tr>
+<tr><td>Max</td><td class="num">60 m</td><td class="num">108 m</td><td class="num">108 m</td></tr>
+</table>
+<p><strong>Distribution (both days):</strong> 0–1 min 14% · 1–5 min 17% · 5–10 min 36% · 10–20 min 22% · &gt;20 min 12%. <strong>34% waited over 10 minutes</strong> against a 5-min SLA.</p>
+<p><strong>Abandonment:</strong> only ~9 sellers across both days joined the lobby and were never assigned; most had a logged reason (laptop unavailable, joined-and-left). Too few clean cases to establish a wait-tolerance cliff — and logging gaps mean true abandonment is higher.</p>
+
+<h2>F · Failure taxonomy</h2>
+<p>From remarks on the 33 not-completed calls, blockers are overwhelmingly seller-side and structural:</p>
+<table>
+<tr><th>Category</th><th>Typical remark</th><th>Fix</th></tr>
+<tr><td>Facebook / 2FA / restriction</td><td>"FB blocked", "2FA code not received", "account restricted", "no eligible FB account"</td><td>Seller-side account fix + reconnect</td></tr>
+<tr><td>Not equipped</td><td>"laptop not available", "network issue", "couldn't share screen"</td><td>Desktop required; pre-qualify</td></tr>
+<tr><td>Seller left mid-call</td><td>"order dispatch", "picking up kids", "urgent meeting"</td><td>Reconnect path</td></tr>
+</table>
+<p>All three are knowable before the call — a pre-qualification screen (desktop + working FB login) would deflect a large share into a "fix this first" flow.</p>
+
+<h2>G · Concurrency &amp; demand</h2>
+<table>
+<tr><th>Metric</th><th class="num">7 July</th><th class="num">8 July</th></tr>
+<tr><td>Max concurrent breakouts (&gt;5-min overlap)</td><td class="num">8 (~16:05)</td><td class="num">12 (~13:10)</td></tr>
+<tr><td>Lobby arrivals logged</td><td class="num">59</td><td class="num">47</td></tr>
+<tr><td>Arrival peak hour</td><td class="num">15:00 (10)</td><td class="num">12:00 (13)</td></tr>
+</table>
+<p>7 July shows a clean afternoon-weighted curve peaking 3–5 PM. 8 July's front-loaded look is partly a logging artifact (blank afternoon join times). Peak concurrency of 12 matches the design ceiling used to size the 13-agent plan.</p>
+
+<h2>H · Staffing model — assumptions &amp; formulas</h2>
+<div class="mono">Effective POCs (7 Jul) = (4 POC x 2.5h + 10 POC x 6.5h) / 9h = 8.3
+Effective POCs (8 Jul) = ~9.5 (churn in/out, ~9-10 sustained)
+
+Meta people   = Meta target/day  ÷  setups per POC/day
+OB-task people = (OB sellers/day x hrs per seller) ÷ 6.5 productive hrs/person
+Total          = (Meta people + OB people) x 1.15 buffer
+
+OB bundle per seller = webd 0.5 + DTR 0.5 + PG 0.25 + fund 0.25 + calls 0.25 = 1.75h
+  Best case (webd & DTR automated) = 1.25h ; Worst = 1.75h
+Meta setups per POC/day: best 6.0, worst 4.5 (pilot ran 4.8-5.8 effective)</div>
+
+<h3>Results at midpoint (55 Meta + 65 OB sellers/day)</h3>
+<table>
+<tr><th>Scenario</th><th class="num">Meta ppl</th><th class="num">OB ppl</th><th class="num">Subtotal</th><th class="num">+15%</th><th class="num">vs 45</th></tr>
+<tr><td>Best (6/POC, 1.25h)</td><td class="num">9.2</td><td class="num">12.5</td><td class="num">21.7</td><td class="num good">~25</td><td class="num good">−20 (−45%)</td></tr>
+<tr><td>Worst (4.5/POC, 1.75h)</td><td class="num">12.2</td><td class="num">17.5</td><td class="num">29.7</td><td class="num warn">~34</td><td class="num warn">−11 (−24%)</td></tr>
+</table>
+<p class="caveat">Assumes ~6.5 productive hrs/person/day for OB-task work. If effective day is 6h, headcount rises ~8%. 8-July effective-POC = 9.5 is an estimate (no per-POC login times in the sheet).</p>
+
+<h2>I · Productisation projection</h2>
+<table>
+<tr><th>Lever</th><th>Pilot</th><th class="num">Productised</th></tr>
+<tr><td>Occupancy</td><td>66%</td><td class="num good">~80%</td></tr>
+<tr><td>Completed setups / POC / day</td><td>~5.3</td><td class="num good">~6.4</td></tr>
+<tr><td>Completion rate</td><td>74%</td><td class="num good">~85%</td></tr>
+<tr><td>Median lobby wait</td><td>6 m (34% &gt;10 m)</td><td class="num good">&lt;5 m</td></tr>
+</table>
+<p>Auto-routing removes the coordinator bottleneck (occupancy + wait); pre-qualification lifts completion. Net ~20–25% more throughput on identical headcount — moving the staffing case toward the best-case column.</p>
+
+<div class="foot">
+Appendix to the Meta Setup Live-Connect readout. Basis: 4-day recorded logs + 2 seller surveys (n=34, n=117) + 2-day live pilot (7–8 July 2026, 129 sellers served). All pilot figures directional given 2-day sample and logging gaps noted in §A. Prepared for Onboarding Ops.
+</div>
+</div>
+</body>
+</html>
