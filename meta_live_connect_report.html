@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meta Setup Live-Connect — Experiment Readout (7–8 July)</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#6b6b6b; --line:#e5e2dc; --bg:#faf8f4;
+    --accent:#2f5d50; --accent2:#c25a3a; --good:#2f7d5b; --warn:#c25a3a; --chip:#efe9df;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Georgia',serif; color:var(--ink); background:var(--bg); margin:0; line-height:1.62;}
+  .wrap{max-width:920px; margin:0 auto; padding:56px 40px 90px;}
+  h1{font-size:34px; line-height:1.15; margin:0 0 6px; letter-spacing:-.5px;}
+  .sub{font-family:'Helvetica Neue',Arial,sans-serif; color:var(--muted); font-size:14px; margin-bottom:34px; letter-spacing:.3px;}
+  h2{font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:var(--accent); margin:46px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--accent);}
+  h3{font-family:'Helvetica Neue',Arial,sans-serif; font-size:16px; margin:26px 0 8px; color:var(--ink);}
+  p{margin:0 0 14px;}
+  .lede{font-size:18px; line-height:1.6;}
+  strong{font-weight:bold;}
+  .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:26px 0 8px;}
+  .kpi{background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px 14px;}
+  .kpi .n{font-family:'Helvetica Neue',Arial,sans-serif; font-size:30px; font-weight:700; color:var(--accent); letter-spacing:-1px;}
+  .kpi .l{font-family:'Helvetica Neue',Arial,sans-serif; font-size:11.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; margin-top:4px; line-height:1.35;}
+  table{width:100%; border-collapse:collapse; margin:14px 0 20px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px;}
+  th{text-align:left; background:var(--accent); color:#fff; padding:9px 10px; font-weight:600; font-size:11.5px; letter-spacing:.4px; text-transform:uppercase;}
+  td{padding:8px 10px; border-bottom:1px solid var(--line);}
+  tr:nth-child(even) td{background:#fff;}
+  .num{text-align:right; font-variant-numeric:tabular-nums;}
+  .good{color:var(--good); font-weight:600;}
+  .warn{color:var(--warn); font-weight:600;}
+  .callout{background:#fff; border-left:4px solid var(--accent2); padding:16px 20px; margin:20px 0; border-radius:0 8px 8px 0;}
+  .callout.green{border-left-color:var(--good);}
+  .callout .t{font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.5px; margin-bottom:6px; color:var(--accent);}
+  ul{margin:6px 0 16px; padding-left:22px;} li{margin-bottom:7px;}
+  .bar{display:inline-block; height:11px; background:var(--accent); border-radius:2px; vertical-align:middle;}
+  .bar2{display:inline-block; height:11px; background:var(--accent2); border-radius:2px; vertical-align:middle;}
+  .barwrap{font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; display:flex; align-items:center; gap:8px; margin:3px 0;}
+  .barwrap .lab{width:76px; color:var(--muted); text-align:right;}
+  .barwrap .val{width:64px; color:var(--ink);}
+  .caveat{font-family:'Helvetica Neue',Arial,sans-serif; font-size:12.5px; color:var(--muted); font-style:italic;}
+  .foot{margin-top:60px; padding-top:18px; border-top:1px solid var(--line); font-family:'Helvetica Neue',Arial,sans-serif; font-size:11.5px; color:var(--muted);}
+  .tag{display:inline-block; background:var(--chip); color:var(--accent); font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px; padding:2px 9px; border-radius:20px; margin-right:5px; letter-spacing:.3px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Meta Setup Live-Connect: First-Run Readout</h1>
+<div class="sub">Lobby → coordinator → breakout-room POC · Experiment days 7 &amp; 8 July 2026 · (9 July excluded — day in progress)</div>
+
+<p class="lede">Two days of live data confirm the core thesis: sellers will show up to an on-demand lobby, and a coordinator-routed breakout model clears them fast. The standout finding — <strong>live-connect calls run ~28% shorter than the old scheduled model</strong> (54-min median vs. 75) — directly improves the economics of the whole staffing plan. Completion sits at a healthy ~73–74%, and each POC clears ~5 sellers a day at ~66% occupancy, leaving real headroom.</p>
+
+<div class="kpis">
+  <div class="kpi"><div class="n">129</div><div class="l">Sellers served across 2 days</div></div>
+  <div class="kpi"><div class="n">95</div><div class="l">Meta setups completed</div></div>
+  <div class="kpi"><div class="n">74%</div><div class="l">Completion rate (of served)</div></div>
+  <div class="kpi"><div class="n">54<span style="font-size:16px">m</span></div><div class="l">Median completed-call time</div></div>
+</div>
+
+<h2>1 · The headline — handle time collapsed</h2>
+<p>In the old scheduled model, a Meta setup call ran a <strong>75-minute median</strong> (83 mean). Under live-connect, completed calls run a <strong>54-minute median</strong> (60 mean) — roughly <strong>28% faster</strong>. The likely driver: sellers arrive when they're actually ready and at a device, so less of the call is lost to "seller not set up yet." This is the single most important number in the readout, because it re-rates every capacity assumption we made earlier.</p>
+
+<div class="callout green">
+  <div class="t">Why this matters for staffing</div>
+  <p style="margin:0">At 75-min calls, one POC in ~6 productive hours does ~4 setups. At 54-min calls, the same POC can do <strong>~5–6</strong>. The experiment bears this out: against a <em>time-weighted effective POC count</em>, both days landed at <strong>~4.8–5.8 completed setups per POC</strong> despite only ~66% occupancy — meaning there was slack to go higher.</p>
+</div>
+
+<h2>2 · Throughput &amp; effective hours</h2>
+<p>Counting every POC who ran a call ("active") overstates the team, because staffing ramped through the day. <strong>7 July</strong> ran only 4 POCs early (10:30–1:00) then 10 for the rest (1:00–7:30); <strong>8 July</strong> had people rotate in and out on leave but held ~9–10 sustained. The honest denominator is a <strong>time-weighted effective POC count</strong> — POC-hours available ÷ day length — and all per-POC productivity is calculated against that, not the raw active headcount.</p>
+
+<div class="callout">
+  <div class="t">Effective POC math</div>
+  <p style="margin:0 0 6px"><strong>7 July:</strong> (4 POC × 2.5h + 10 POC × 6.5h) ÷ 9h day = <strong>8.3 effective POCs</strong> (not 10 active).</p>
+  <p style="margin:0"><strong>8 July:</strong> induction/leave churn, but ~9–10 held all day → <strong>9.5 effective POCs</strong> (not 13 active).</p>
+</div>
+
+<table>
+  <tr><th>Metric</th><th class="num">7 July</th><th class="num">8 July</th></tr>
+  <tr><td>POCs active (ran ≥1 call)</td><td class="num">10</td><td class="num">13</td></tr>
+  <tr><td><strong>Effective POCs (time-weighted)</strong></td><td class="num"><strong>8.3</strong></td><td class="num"><strong>9.5</strong></td></tr>
+  <tr><td>Sellers served (entered a breakout)</td><td class="num">55</td><td class="num">74</td></tr>
+  <tr><td>Completed setups</td><td class="num good">40</td><td class="num good">55</td></tr>
+  <tr><td>Completion rate</td><td class="num">73%</td><td class="num">74%</td></tr>
+  <tr><td>Completed / effective POC</td><td class="num good">4.8</td><td class="num good">5.8</td></tr>
+  <tr><td>Served / effective POC</td><td class="num">6.6</td><td class="num">7.8</td></tr>
+  <tr><td>Avg POC online span</td><td class="num">7.1 h</td><td class="num">7.9 h</td></tr>
+  <tr><td>Avg time on calls / POC</td><td class="num">4.7 h</td><td class="num">5.3 h</td></tr>
+  <tr><td>Occupancy (busy ÷ online)</td><td class="num">66%</td><td class="num">66%</td></tr>
+</table>
+<p><strong>Why the correction matters:</strong> on the naive active count, each POC looked like ~4 setups/day. On the effective count, it's <strong>~4.8 on 7 July and ~5.8 on 8 July</strong> — comfortably at or above the "4 ideal" productivity target we planned with, and served-per-POC of 6.6–7.8 shows genuine daily throughput. The team is more productive than the raw headcount suggested.</p>
+<p><strong>Effective vs. actual hours:</strong> POCs were online ~7–8 hours but on calls ~5 of those — a ~66% occupancy "effective working" ratio. The remaining third went to inter-call gaps, waiting for the coordinator to route the next seller, and (1–4 PM) lunch. That gap is reclaimable capacity: pushing occupancy from 66% → 80% on 54-min calls would lift per-POC output from ~5–6 toward ~7 setups without longer hours.</p>
+
+<h2>3 · Per-POC operations</h2>
+<p>The breakout-room POC is the agent who actually ran the call (distinct from the seller's onboarding owner). Sorted by volume.</p>
+
+<h3>7 July</h3>
+<table>
+  <tr><th>POC</th><th class="num">Calls</th><th class="num">Done</th><th class="num">Rate</th><th class="num">Online</th><th class="num">On-call</th><th class="num">Free</th><th class="num">Occ.</th></tr>
+  <tr><td>Dishari</td><td class="num">9</td><td class="num">7</td><td class="num">78%</td><td class="num">8.1h</td><td class="num">4.8h</td><td class="num">3.3h</td><td class="num">60%</td></tr>
+  <tr><td>Saleem</td><td class="num">6</td><td class="num">5</td><td class="num">83%</td><td class="num">8.8h</td><td class="num">6.0h</td><td class="num">2.9h</td><td class="num">68%</td></tr>
+  <tr><td>Pratik</td><td class="num">6</td><td class="num">5</td><td class="num">83%</td><td class="num">8.0h</td><td class="num">4.4h</td><td class="num">3.6h</td><td class="num">55%</td></tr>
+  <tr><td>Sunil</td><td class="num">6</td><td class="num">4</td><td class="num">67%</td><td class="num">6.2h</td><td class="num">4.6h</td><td class="num">1.6h</td><td class="num">74%</td></tr>
+  <tr><td>Rachita</td><td class="num">5</td><td class="num good">5</td><td class="num good">100%</td><td class="num">6.9h</td><td class="num">4.7h</td><td class="num">2.2h</td><td class="num">68%</td></tr>
+  <tr><td>Darius</td><td class="num">5</td><td class="num">4</td><td class="num">80%</td><td class="num">6.8h</td><td class="num">5.1h</td><td class="num">1.7h</td><td class="num">75%</td></tr>
+  <tr><td>Saquib</td><td class="num">5</td><td class="num">4</td><td class="num">80%</td><td class="num">8.8h</td><td class="num">5.2h</td><td class="num">3.6h</td><td class="num">59%</td></tr>
+  <tr><td>Shrusti</td><td class="num">4</td><td class="num">3</td><td class="num">75%</td><td class="num">6.5h</td><td class="num">4.9h</td><td class="num">1.6h</td><td class="num">76%</td></tr>
+  <tr><td>Vaishnavi</td><td class="num">4</td><td class="num">3</td><td class="num">75%</td><td class="num">6.1h</td><td class="num">4.3h</td><td class="num">1.8h</td><td class="num">71%</td></tr>
+  <tr><td>Jayshree</td><td class="num">5</td><td class="num warn">0</td><td class="num warn">0%</td><td class="num">4.6h</td><td class="num">2.9h</td><td class="num">1.8h</td><td class="num">62%</td></tr>
+</table>
+
+<h3>8 July</h3>
+<table>
+  <tr><th>POC</th><th class="num">Calls</th><th class="num">Done</th><th class="num">Rate</th><th class="num">Online</th><th class="num">On-call</th><th class="num">Free</th><th class="num">Occ.</th></tr>
+  <tr><td>Sunil</td><td class="num">10</td><td class="num good">8</td><td class="num">80%</td><td class="num">7.7h</td><td class="num">6.0h</td><td class="num">1.6h</td><td class="num">79%</td></tr>
+  <tr><td>Saquib</td><td class="num">7</td><td class="num">6</td><td class="num">86%</td><td class="num">7.9h</td><td class="num">5.7h</td><td class="num">2.1h</td><td class="num">73%</td></tr>
+  <tr><td>Tausif</td><td class="num">7</td><td class="num good">7</td><td class="num good">100%</td><td class="num">6.5h</td><td class="num">5.1h</td><td class="num">1.4h</td><td class="num">78%</td></tr>
+  <tr><td>Shrusti</td><td class="num">7</td><td class="num">5</td><td class="num">71%</td><td class="num">11.3h*</td><td class="num">5.6h</td><td class="num">5.7h</td><td class="num">50%</td></tr>
+  <tr><td>Darius</td><td class="num">6</td><td class="num">4</td><td class="num">67%</td><td class="num">7.5h</td><td class="num">—</td><td class="num">—</td><td class="num warn">109%*</td></tr>
+  <tr><td>Sreelekha</td><td class="num">5</td><td class="num good">5</td><td class="num good">100%</td><td class="num">6.7h</td><td class="num">5.5h</td><td class="num">1.2h</td><td class="num">82%</td></tr>
+  <tr><td>Saleem</td><td class="num">5</td><td class="num">4</td><td class="num">80%</td><td class="num">7.3h</td><td class="num">6.0h</td><td class="num">1.4h</td><td class="num">82%</td></tr>
+  <tr><td>Vaishnavi</td><td class="num">5</td><td class="num">3</td><td class="num">60%</td><td class="num">6.8h</td><td class="num">4.9h</td><td class="num">1.8h</td><td class="num">73%</td></tr>
+  <tr><td>Imteyaz</td><td class="num">5</td><td class="num">3</td><td class="num">60%</td><td class="num">13.8h*</td><td class="num">4.5h</td><td class="num">9.3h</td><td class="num">32%</td></tr>
+  <tr><td>Dishari</td><td class="num">4</td><td class="num good">4</td><td class="num good">100%</td><td class="num">6.7h</td><td class="num">4.0h</td><td class="num">2.7h</td><td class="num">60%</td></tr>
+  <tr><td>Jayshree</td><td class="num">4</td><td class="num">3</td><td class="num">75%</td><td class="num">6.2h</td><td class="num">5.7h</td><td class="num">0.5h</td><td class="num">92%</td></tr>
+  <tr><td>Rachita</td><td class="num">5</td><td class="num warn">2</td><td class="num warn">40%</td><td class="num">7.2h</td><td class="num">2.6h</td><td class="num">4.7h</td><td class="num">36%</td></tr>
+  <tr><td>Pratik</td><td class="num">4</td><td class="num warn">1</td><td class="num warn">25%</td><td class="num">7.8h</td><td class="num">4.9h</td><td class="num">2.9h</td><td class="num">63%</td></tr>
+</table>
+<p class="caveat">* Flagged as dirty timestamps: Shrusti &amp; Imteyaz have stray AM entries (5–6 AM) inflating their span; Darius's 109% occupancy means overlapping logged intervals (two calls booked to one POC). Real spans for these three are ~7h. Treat their occupancy as unreliable, not their call counts.</p>
+
+<div class="callout">
+  <div class="t">People signal (directional, 2 days only)</div>
+  <ul style="margin:0">
+    <li><strong>Consistently strong:</strong> Sunil (18 calls / 12 done over 2 days, high occupancy), Saquib, Tausif (100% on day 2), Sreelekha, Dishari. These are the throughput anchors.</li>
+    <li><strong>Low completion, worth a look:</strong> Jayshree on 7 July (0/5), Pratik (1/4) and Rachita (2/5) on 8 July. Some of this is bad-luck disposition (2FA/FB-restriction cases cluster), not skill — the remarks show genuinely un-completable calls. Do <em>not</em> rank on 2 days; watch the trend.</li>
+  </ul>
+</div>
+
+<h2>4 · Completion — and why calls fail</h2>
+<p>Completed calls are <strong>longer and fuller</strong> (54-min median) than failed ones (<strong>36-min median</strong>) — failures tend to end early when a blocker appears. The blocker pattern is remarkably consistent and is <em>mostly seller-side and structural</em>, not agent performance:</p>
+<ul>
+  <li><strong>Facebook / 2FA / account-restriction issues</strong> — the dominant failure reason. "FB blocked", "2FA code not received", "account restricted", "no eligible FB account". These need a seller-side fix (new account, recovery) and a reconnect.</li>
+  <li><strong>Seller not equipped</strong> — "laptop not available", "network issue", "couldn't share screen". Setup needs a desktop; mobile-only sellers can't complete.</li>
+  <li><strong>Seller left mid-call</strong> — order dispatch, kids, meetings.</li>
+</ul>
+
+<h3>Duration distribution — completed calls (n=95)</h3>
+<div class="barwrap"><span class="lab">&lt;30m</span><span class="bar" style="width:16px"></span><span class="val">4%</span></div>
+<div class="barwrap"><span class="lab">30–45m</span><span class="bar" style="width:104px"></span><span class="val">26%</span></div>
+<div class="barwrap"><span class="lab">45–60m</span><span class="bar" style="width:96px"></span><span class="val">24%</span></div>
+<div class="barwrap"><span class="lab">60–75m</span><span class="bar" style="width:88px"></span><span class="val">22%</span></div>
+<div class="barwrap"><span class="lab">75–90m</span><span class="bar" style="width:56px"></span><span class="val">14%</span></div>
+<div class="barwrap"><span class="lab">90–120m</span><span class="bar" style="width:24px"></span><span class="val">6%</span></div>
+<div class="barwrap"><span class="lab">&gt;120m</span><span class="bar" style="width:12px"></span><span class="val">3%</span></div>
+
+<h3>Duration distribution — NOT completed calls (n=33)</h3>
+<div class="barwrap"><span class="lab">&lt;15m</span><span class="bar2" style="width:60px"></span><span class="val">15%</span></div>
+<div class="barwrap"><span class="lab">15–30m</span><span class="bar2" style="width:84px"></span><span class="val">21%</span></div>
+<div class="barwrap"><span class="lab">30–45m</span><span class="bar2" style="width:108px"></span><span class="val">27%</span></div>
+<div class="barwrap"><span class="lab">45–60m</span><span class="bar2" style="width:84px"></span><span class="val">21%</span></div>
+<div class="barwrap"><span class="lab">60–90m</span><span class="bar2" style="width:48px"></span><span class="val">12%</span></div>
+<div class="barwrap"><span class="lab">&gt;90m</span><span class="bar2" style="width:12px"></span><span class="val">3%</span></div>
+<p class="caveat">36% of failed calls end within 30 minutes — the agent hits a hard seller-side blocker (no FB, no laptop) fast and reschedules. That's efficient triage, not wasted time, but it's ~33 calls of demand that come back a second time.</p>
+
+<h2>5 · Wait time in the lobby</h2>
+<table>
+  <tr><th>Wait (lobby → breakout)</th><th class="num">7 July</th><th class="num">8 July</th><th class="num">Both</th></tr>
+  <tr><td>Average</td><td class="num">9.0 min</td><td class="num">13.0 min</td><td class="num">10.8 min</td></tr>
+  <tr><td>Median</td><td class="num">5 min</td><td class="num">7 min</td><td class="num">6 min</td></tr>
+  <tr><td>p75</td><td class="num">10 min</td><td class="num">13 min</td><td class="num">11 min</td></tr>
+  <tr><td>p90</td><td class="num">17 min</td><td class="num">17 min</td><td class="num">20 min</td></tr>
+</table>
+<div class="barwrap"><span class="lab">0–1 min</span><span class="bar" style="width:56px"></span><span class="val">14% instant</span></div>
+<div class="barwrap"><span class="lab">1–5 min</span><span class="bar" style="width:68px"></span><span class="val">17%</span></div>
+<div class="barwrap"><span class="lab">5–10 min</span><span class="bar" style="width:144px"></span><span class="val">36%</span></div>
+<div class="barwrap"><span class="lab">10–20 min</span><span class="bar" style="width:88px"></span><span class="val">22%</span></div>
+<div class="barwrap"><span class="lab">&gt;20 min</span><span class="bar2" style="width:48px"></span><span class="val">12%</span></div>
+
+<div class="callout">
+  <div class="t">The 5-minute SLA is not being met</div>
+  <p style="margin:0 0 8px">We planned for a <strong>5-minute max lobby wait</strong>. Reality: median 6 min, and <strong>34% of sellers waited longer than 10 minutes</strong>. On 8 July the average nearly hit 13 min as volume rose. This is the clearest operational gap — with a manual coordinator routing one-by-one, the lobby backs up at peak.</p>
+  <p style="margin:0"><strong>Abandonment signal:</strong> only ~9 sellers across both days entered the lobby and were never assigned, and most of those had a real reason logged (laptop unavailable, joined-and-left). We have <em>very few clean cases</em> to pin down the "wait-then-leave" threshold — the logging caveat (short-stay sellers at peak may be unlogged) means true abandonment is almost certainly higher than 9. <strong>We cannot yet reliably state the wait-tolerance cliff</strong> from this data.</p>
+</div>
+
+<h2>6 · Demand shape (from lobby arrivals)</h2>
+<p>Waiting-room join times give the truest arrival signal we've had — sellers showing up on their own initiative, not pushed by a POC. <strong>7 July</strong> shows a clean afternoon-weighted curve peaking 3–5 PM. <strong>8 July</strong> looks front-loaded (11 AM–1 PM), but this is partly a logging artifact — many afternoon breakout calls that day have blank lobby-join times, so afternoon arrivals are undercounted.</p>
+
+<h3>7 July — lobby arrivals by hour (n=59)</h3>
+<div class="barwrap"><span class="lab">11 AM</span><span class="bar" style="width:80px"></span><span class="val">8</span></div>
+<div class="barwrap"><span class="lab">12 PM</span><span class="bar" style="width:40px"></span><span class="val">4</span></div>
+<div class="barwrap"><span class="lab">1 PM</span><span class="bar" style="width:80px"></span><span class="val">8</span></div>
+<div class="barwrap"><span class="lab">2 PM</span><span class="bar" style="width:50px"></span><span class="val">5</span></div>
+<div class="barwrap"><span class="lab">3 PM</span><span class="bar" style="width:100px"></span><span class="val">10 ◄ peak</span></div>
+<div class="barwrap"><span class="lab">4 PM</span><span class="bar" style="width:90px"></span><span class="val">9</span></div>
+<div class="barwrap"><span class="lab">5 PM</span><span class="bar" style="width:70px"></span><span class="val">7</span></div>
+<div class="barwrap"><span class="lab">6 PM</span><span class="bar" style="width:60px"></span><span class="val">6</span></div>
+<div class="barwrap"><span class="lab">7 PM</span><span class="bar" style="width:20px"></span><span class="val">2</span></div>
+
+<p><strong>Peak concurrency</strong> (max simultaneous breakout calls, &gt;5-min overlap rule): <strong>8 on 7 July</strong> (~4 PM), <strong>12 on 8 July</strong> (~1 PM). The 8-July figure of 12 lines up almost exactly with the ~11–12 peak-live we sized the 13-agent plan around — the experiment validates that ceiling.</p>
+
+<h2>7 · What this means for the staffing plan</h2>
+<div class="callout green">
+  <div class="t">The 13-agent throughput plan holds — and may be conservative</div>
+  <ul style="margin:0">
+    <li><strong>Handle time is better than assumed.</strong> We sized on 75-min calls / 4-per-agent. Actual is 54-min / ~5–6 completed per <em>effective</em> POC at only 66% occupancy. There's real slack — the team cleared 40–55 setups/day with 8.3–9.5 effective people, matching our 35–40 demand estimate with room above it.</li>
+    <li><strong>Peak concurrency (12) matches our design ceiling.</strong> No need to add bodies for load; the two-shift overlap covers it.</li>
+    <li><strong>The binding constraint is routing, not headcount.</strong> The 5-min SLA broke because a single human coordinator serialises assignment. Fixing that is a <em>process/automation</em> problem (auto-assign to first free breakout), not a hiring one.</li>
+  </ul>
+</div>
+
+<h3>Recommended next actions</h3>
+<ul>
+  <li><strong>Automate lobby routing</strong> to hit the 5-min SLA — replace one-by-one coordinator assignment with auto-route to the first free POC. This is the #1 fix.</li>
+  <li><strong>Pre-qualify before the lobby.</strong> The top failure causes — no laptop, FB account restricted/no 2FA — are knowable <em>before</em> the call. A one-screen check ("Are you on a desktop? Is your Facebook login working?") would deflect ~30% of failed calls into a "fix this first" flow, lifting completion well above 74%.</li>
+  <li><strong>Build a clean reconnect path.</strong> A third of failures reschedule for "tomorrow". Track and auto-surface these so they don't re-queue cold.</li>
+  <li><strong>Fix logging</strong> — blank lobby-join times on completed calls and stray AM timestamps are hiding true demand and distorting occupancy. Tighten before the next read.</li>
+</ul>
+
+<h2>8 · Caveats — read the numbers with these in mind</h2>
+<ul>
+  <li><strong>Two days only.</strong> Everything here is directional. Do not rank individual POCs or lock decisions on this alone.</li>
+  <li><strong>Logging is incomplete.</strong> Completed calls are reliably logged; some non-completions and short-stay lobby exits at peak are missed — so <strong>true completion rate is likely a bit lower</strong> and <strong>true abandonment higher</strong> than shown.</li>
+  <li><strong>Timestamps are messy</strong> (~10-min drift, mixed AM/PM, a few 5–6 AM stray entries). Durations and spans are ±10 min; three POCs' occupancy figures are unreliable (flagged).</li>
+  <li><strong>Breakout POC ≠ onboarding POC.</strong> All per-agent stats use the breakout-room POC (who ran the call). The 1–4 PM lunch window means some "free" time is actually off-shift.</li>
+  <li><strong>Wait-tolerance cliff is unestablished</strong> — too few clean abandonment cases to state when sellers give up.</li>
+</ul>
+
+<div class="foot">
+  <span class="tag">129 served</span><span class="tag">95 completed</span><span class="tag">54-min median</span><span class="tag">66% occupancy</span><span class="tag">~4.8–5.8 setups / effective POC</span><br><br>
+  Source: Subrat's live-connect experiment sheet, 7–8 July 2026. Analysis excludes 9 July (in progress). Figures derived from breakout-room join/exit timestamps; completion per the sheet's completed flag. Prepared as a first-run readout for the Meta setup live-connect pilot.
+</div>
+
+</div>
+</body>
+</html>
